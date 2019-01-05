@@ -6,14 +6,33 @@ const ayarlar = require('../ayarlar.json');
 var prefix = ayarlar.prefix;
 
 module.exports = client => {
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Bot Dosyalari Korunuyor`);
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}]  Koruma Calisiyor.`);
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Sunucu Aktif!`);
-  client.user.setStatus("online");
-  client.user.setGame(`${prefix}komutlar | 1.0.0 Güncelleme |vaxeturkiye.epizy.com`);
-  console.log(`Hazir Sunucuyu Baslatin...`);
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Vaxe.`);
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Sunucu Aktif!`);
-				  
-				  
-};
+console.log('>> Oynuyor kısmı başarıyla güncellendi. <<');
+console.log(`${prefix}yardım + ${client.guilds.size} sunucu + ${client.users.size} kullanıcı`);
+console.log('>> Bot Hazır Giriş Yapıldı! <<');
+
+    var Games = [
+
+        " KAYA 1",
+      
+        ` KAYA 2`,
+      
+        ` KAYA 3`,
+        
+        ` KAYA 4`,
+        
+        ` KAYA 5`,
+      
+        ` KAYA 6`,
+        
+
+
+    ];
+
+    setInterval(function() {
+
+        var random = Math.floor(Math.random()*(Games.length-0+1)+0);
+
+        client.user.setGame(Games[random], `https://www.twitch.tv/troyunculuk`)
+        }, 2 * 2500);
+
+}; 
