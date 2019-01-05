@@ -1,44 +1,57 @@
 {
-  "name": "VaxeTurkiye",
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "hello-express",
   "version": "0.0.1",
-  "description": "VaxeTurkiye",
+  "description": "A simple Node app built on Express, instantly up and running.",
   "main": "bot.js",
-  "dependencies": {
-    "cat-names": "^1.0.2",
-    "chalk": "^2.4.1",
-    "cleverbot-node": "^0.3.11",
-    "colors": "^1.2.4",
-    "cool-images": "^1.0.1",
-    "discord.js": "^11.3.2",
-    "dog-names": "^1.0.2",
-    "fuzzysearch": "^1.0.3",
-    "g-image-search": "^1.0.2",
-    "get-urls": "^7.0.0",
-    "hastebin-gen": "^1.3.1",
-    "moment": "^2.22.1",
-    "moment-duration-format": "^1.3.0",
-    "ms": "^2.1.1",
-    "name": "0.0.2",
-    "nodemon": "^1.11.0",
-    "path": "^0.12.7",
-    "randomstring": "^1.1.5",
-    "require-glob": "^3.2.0",
-    "return-deep-diff": "^0.3.0",
-    "sqlite": "^2.9.1",
-    "yamdbf": "^2.6.2"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "node bot.js"
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "colors": "^1.3.2",
+    "common-tags": "^1.8.0",
+    "discord.js": "^11.4.2",
+    "discord.js-commando": "^0.10.0",
+    "express": "^4.16.4",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-binaries": "^4.0.0",
+    "figlet": "^1.2.1",
+    "fs": "^0.0.2",
+    "g-image-search": "^1.0.2",
+    "gifencoder": "^2.0.0",
+    "google": "^2.1.0",
+    "jimp": "^0.5.6",
+    "js-base64": "^2.4.9",
+    "kratos": "^2.3.3",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2",
+    "node-opus": "^0.3.0",
+    "path": "^0.12.7",
+    "quick-db": "^1.0.5",
+    "quick.db": "^6.3.2",
+    "randomstring": "^1.1.5",
+    "request": "^2.88.0",
+    "server.js": "^1.0.0",
+    "simple-youtube-api": "^5.1.0",
+    "snekfetch": "^4.0.4",
+    "sqlite": "^3.0.0",
+    "superagent": "^4.0.0-beta.5",
+    "weather-js": "^2.0.0",
+    "ytdl-core": "^0.26.3"
+  },
+  "engines": {
+    "node": "8.x"
   },
   "repository": {
-    "type": "",
-    "url": ""
+    "url": "https://glitch.com/edit/#!/hello-express"
   },
-  "author": "xChairs",
   "license": "MIT",
-  "bugs": {
-    "url": ""
-  },
-  "homepage": ""
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
 }
