@@ -15,7 +15,7 @@ exports.run = (client, msg) => {
 • komutlar :: Tüm komutları listeler.
 • ping     :: Botun pingini gösterir.
 • duyuru   :: Sunucunuzda duyuru yapmanızı sağlar.
-• avatarım :: Avatarini Gosterir
+• avatar   :: Etiketlediginiz Kisinin Avatarini Gosterir
 • istatistik :: Bot Istatistik Gosterir.
 • randomşifre :: Rondom Sifre Verir.
 • seviye-sistemi :: Seviyeni Gosterir.
