@@ -14,16 +14,7 @@ console.log('>> Bot Hazır Giriş Yapıldı! <<');
 
         " KAYA 1",
       
-        ` KAYA 2`,
-      
-        ` KAYA 3`,
-        
-        ` KAYA 4`,
-        
-        ` KAYA 5`,
-      
-        ` KAYA 6`,
-        
+     
 
 
     ];
