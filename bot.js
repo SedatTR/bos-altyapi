@@ -78,82 +78,11 @@ client.unload = command => {
   });
 };
 
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'sa') {
-    msg.reply('**Aleyküm selam**');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'aq') {
-    msg.reply('**Argo Kelime Kullanma**');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'sik') {
-    msg.reply('**Argo Kelime Kullanma**');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'sikerim') {
-    msg.reply('**Argo Kelime Kullanma**');
-  }  
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'amk') {
-    msg.reply('**Argo Kelime Kullanma**');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'siktirgit') {
-    msg.reply('**Argo Kelime Kullanma**');
-  }
-if (msg.content === 'selamın aleyküm') {
-   	msg.reply('ve aleyküm selam');
-  }
-
-  if (msg.content === 'bye bye') {
-   	msg.reply('su gibi git su gibi gel');
-  }
-
-  if (msg.content === 'günaydın') {
-   	msg.reply('sana da günaydın');
-  }
-
-  if (msg.content === 'herkese günaydın') {
-   	msg.reply('yepyeni bir güne merhaba :)');
-  }
-
-  if (msg.content === 'iyi geceler') {
-   	msg.reply('sana da iyi geceler');
-  }
-
-  if (msg.content === 'sa') {
-   	msg.reply('**Sunucuda Argo Kelime Kullanma**');
-  }
-
-  if (msg.content === 'iyi akşamlar') {
-   	msg.reply('sana da iyi akşamlar');
-  }
-
-  if (msg.content === 'selamın aleyküm') {
-   	msg.reply('ve aleyküm selam');
-  }
-
-  if (msg.content === 'güle güle') {
-   	msg.reply('sana da güle güle');
-  }
-  
-});
-
 client.elevation = message => {
   if(!message.guild) {
 	return; }
   let permlvl = 0;
+  if (message.member.hasPermission("MANAGE_MESSAGES")) permlvl = 1;
   if (message.member.hasPermission("BAN_MEMBERS")) permlvl = 2;
   if (message.member.hasPermission("ADMINISTRATOR")) permlvl = 3;
   if (message.author.id === ayarlar.sahip) permlvl = 4;
@@ -161,9 +90,6 @@ client.elevation = message => {
 };
 
 var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
-// client.on('debug', e => {
-//   console.log(chalk.bgBlue.green(e.replace(regToken, 'that was redacted')));
-// });
 
 client.on('warn', e => {
   console.log(chalk.bgYellow(e.replace(regToken, 'that was redacted')));

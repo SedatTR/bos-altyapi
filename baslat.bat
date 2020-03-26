@@ -1,8 +1,7 @@
-@echo off
-color e
-title Vaxe
-echo Botu BASLATMAK ICIN BISEY TIKLA
-PAUSE
+echo off
+title BOT BASLADI
+color 0f
+cls
 :a
 node bot.js
 goto a
