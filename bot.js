@@ -78,6 +78,10 @@ client.unload = command => {
   });
 };
 
+// BU BÖLÜM ARASINA KODLARINIZI EKLEYEBİLİRSİNİZ.
+
+//
+
 client.elevation = message => {
   if(!message.guild) {
 	return; }
