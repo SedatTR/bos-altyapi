@@ -3,17 +3,16 @@
   "name": "bot-ismi",
   "version": "0.0.1",
   "description": "Hazır boş altyapı.",
-
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
   },
   "dependencies": {
     "discord.js": "^12.2.0",
-    "moment": "^2.26.0",
-    "fs": "^0.0.2",
     "chalk": "^4.0.0",
-    "quick.db": "^7.1.1"
+    "quick.db": "^7.1.1",
+    "moment": "^2.26.0",
+    "fs": "^0.0.2"
   },
   "engines": {
     "node": "12.x"

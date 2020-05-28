@@ -1,7 +1,7 @@
-# SedatTR | Boş Bot Altyapısı
+# SEDATTR | BOŞ BOT ALTYAPISI v1.0.2
 Bu projeyi rahatlıkla kopyalayabilirsiniz.
 Bu projenin amacı, insanlara yardımcı olmak için boş bir altyapı verip rahatça botlarını kurabilmeleri içindir.
-Bu projenin , bu projenin sahibi SedatTR#7848'dir.
+Bu projenin her şeyini kodlayan ve bu projenin sahibi SedatTR#7848'dir.
 
 - Botun bazı ayarlarını **settings.json** dosyasından değiştirebilirsiniz.
 - Botun oynuyor mesajlarını **events/ready.js** dosyasından değiştirebilirsiniz.
@@ -10,3 +10,7 @@ Bu projenin , bu projenin sahibi SedatTR#7848'dir.
 
 - Eğer botun sahibi 1'den fazla kişiyse, settings.json'daki owner yerini şöyle yapabilirsiniz:
 "owner" : ["Botun Sahibi 1", "Botun Sahibi 2"]
+
+Bazı Hatalar
+- An invalid token was provided: Bu hatanın sebebi, yanlış bot tokeni girilmesinden dolayıdır.
+- Cannot find module 'İSİM': Bu hatanın sebebi, İSİM adlı modül bulunamamasından dolayıdır. Modülü indirmek için, package.json bölümüne gelin, Add Package tuşuna tıklayın ve modülün ismini girip modülün ismi yazan yere tıklayın. Böylece modül inmiş olacaktır.

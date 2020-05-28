@@ -1,5 +1,5 @@
 echo off
-title BOT BASLADI
+title BOT BASARIYLA BASLADI
 color 0f
 cls
 :a
