@@ -1,20 +1,22 @@
-const ayarlar = require('../ayarlar.json');
-module.exports = message => {
-  let client = message.client;
-  if (message.author.bot) return;
-  if (!message.content.startsWith(ayarlar.prefix)) return;
-  let command = message.content.split(' ')[0].slice(ayarlar.prefix.length);
-  let params = message.content.split(' ').slice(1);
-  let perms = client.elevation(message);
-  let cmd;
-  if (client.commands.has(command)) {
-    cmd = client.commands.get(command);
-  } else if (client.aliases.has(command)) {
-    cmd = client.commands.get(client.aliases.get(command));
-  }
-  if (cmd) {
-    if (perms < cmd.conf.permLevel) return;
-    cmd.run(client, message, params, perms);
-  }
+const settings = require('../settings.json');
+const Discord = require('discord.js');
+const db = require('quick.db');
+const moment = require('moment');
+const prefix = settings.prefix;
 
+module.exports = async (client, message) => {
+  if (!message.guild) return;
+  if (message.author.bot) return;
+
+  if (!message.content.startsWith(prefix)) return;
+  
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+  const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
+  if (!cmd) return;
+    
+  const permission = await client.permission(message, cmd.config.permission);
+  if (permission !== true) return message.channel.send(`Bu komutu kullanabilmek için ${cmd.config.permission.replace("_", " ")} yetkisine ihtiyacın var.`);
+  
+  if (cmd) cmd.run(client, message, args, command);
 };

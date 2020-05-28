@@ -1,106 +1,47 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const ayarlar = require('./ayarlar.json');
-const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
-require('./util/eventLoader')(client);
-
-var prefix = ayarlar.prefix;
-
-const log = message => {
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
-};
+const settings = require('./settings.json');
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
-fs.readdir('./komutlar/', (err, files) => {
-  if (err) console.error(err);
-  log(`${files.length} komut yüklenecek.`);
-  files.forEach(f => {
-    let props = require(`./komutlar/${f}`);
-    log(`Yüklenen komut: ${props.help.name}.`);
-    client.commands.set(props.help.name, props);
-    props.conf.aliases.forEach(alias => {
-      client.aliases.set(alias, props.help.name);
+
+const init = async () => {
+  await fs.readdir("./commands/", (err, files) => {
+    if (err) console.log(err)
+    console.log(`${moment().format("hh:mma DD/MM/YYYY")} | ${files.length} komut yükleniyor...`)
+    files.forEach((f, i) => {
+      let pull = require(`./commands/${f}`);
+      console.log(`${moment().format("hh:mma DD/MM/YYYY")} | ${pull.config.name.toUpperCase()} adlı komut yüklendi!`)
+      client.commands.set(pull.config.name, pull);  
+      pull.config.aliases.forEach(alias => {
+        client.aliases.set(alias, pull.config.name)
+      });
     });
   });
-});
 
-client.reload = command => {
-  return new Promise((resolve, reject) => {
-    try {
-      delete require.cache[require.resolve(`./komutlar/${command}`)];
-      let cmd = require(`./komutlar/${command}`);
-      client.commands.delete(command);
-      client.aliases.forEach((cmd, alias) => {
-        if (cmd === command) client.aliases.delete(alias);
-      });
-      client.commands.set(command, cmd);
-      cmd.conf.aliases.forEach(alias => {
-        client.aliases.set(alias, cmd.help.name);
-      });
-      resolve();
-    } catch (e){
-      reject(e);
-    }
+  await fs.readdir('./events/', (err, files) => {
+    if (err) console.error(err);
+	console.log(`${moment().format("hh:mma DD/MM/YYYY")} |`)
+    console.log(`${moment().format("hh:mma DD/MM/YYYY")} | ${files.length} olay yükleniyor...`);
+    files.forEach(f => {
+      const eventName = f.split(".")[0];
+      const event = require(`./events/${f}`);
+      client.on(eventName, event.bind(null, client));
+      console.log(`${moment().format("hh:mma DD/MM/YYYY")} | ${eventName.toUpperCase()} adlı olay yüklendi!`);
+    });
   });
+
+client.login(settings.token);
 };
 
-client.load = command => {
-  return new Promise((resolve, reject) => {
-    try {
-      let cmd = require(`./komutlar/${command}`);
-      client.commands.set(command, cmd);
-      cmd.conf.aliases.forEach(alias => {
-        client.aliases.set(alias, cmd.help.name);
-      });
-      resolve();
-    } catch (e){
-      reject(e);
-    }
-  });
+init();
+
+client.permission = (message, text) => {
+  if (text.includes('NONE')) return true;
+  if (text.includes('BOT_OWNER') && !settings.owner.includes(message.author.id)) return false;
+  if (text.includes('SERVER_OWNER') && message.author.id !== message.guild.owner.user.id) return false;
+  if (!message.member.hasPermission(text)) return false;
+  return true;
 };
-
-client.unload = command => {
-  return new Promise((resolve, reject) => {
-    try {
-      delete require.cache[require.resolve(`./komutlar/${command}`)];
-      let cmd = require(`./komutlar/${command}`);
-      client.commands.delete(command);
-      client.aliases.forEach((cmd, alias) => {
-        if (cmd === command) client.aliases.delete(alias);
-      });
-      resolve();
-    } catch (e){
-      reject(e);
-    }
-  });
-};
-
-// BU BÖLÜM ARASINA KODLARINIZI EKLEYEBİLİRSİNİZ.
-
-//
-
-client.elevation = message => {
-  if(!message.guild) {
-	return; }
-  let permlvl = 0;
-  if (message.member.hasPermission("MANAGE_MESSAGES")) permlvl = 1;
-  if (message.member.hasPermission("BAN_MEMBERS")) permlvl = 2;
-  if (message.member.hasPermission("ADMINISTRATOR")) permlvl = 3;
-  if (message.author.id === ayarlar.sahip) permlvl = 4;
-  return permlvl;
-};
-
-var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
-
-client.on('warn', e => {
-  console.log(chalk.bgYellow(e.replace(regToken, 'that was redacted')));
-});
-
-client.on('error', e => {
-  console.log(chalk.bgRed(e.replace(regToken, 'that was redacted')));
-});
-
-client.login(ayarlar.token);

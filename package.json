@@ -1,18 +1,19 @@
 {
-  "//Açıklama": "Bu boş altyapı, SedatTR#0656 tarafından yapılmıştır.",
+  "//Açıklama": "Bu boş altyapı, SedatTR#7848 tarafından yapılmıştır.",
   "name": "bot-ismi",
   "version": "0.0.1",
   "description": "Hazır boş altyapı.",
+
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
   },
   "dependencies": {
-    "discord.js": "^11.6.3",
-    "moment": "^2.24.0",
+    "discord.js": "^12.2.0",
+    "moment": "^2.26.0",
     "fs": "^0.0.2",
-    "chalk": "^3.0.0",
-    "quick.db": "^6.3.2"
+    "chalk": "^4.0.0",
+    "quick.db": "^7.1.1"
   },
   "engines": {
     "node": "12.x"

@@ -1,7 +1,9 @@
 const Discord = require('discord.js');
+const moment = require('moment');
 
 module.exports = client => {
-  console.log(`${client.user.username} olarak giriş yapıldı.`);
+  console.log(`${moment().format("hh:mma DD/MM/YYYY")} | ${client.user.tag} olarak giriş yapıldı.`);
+  console.log(`${moment().format("hh:mma DD/MM/YYYY")} | Bot ${client.guilds.cache.size} sunucuya, ${client.users.cache.size} üyeye hizmet ediyor.`);
 
   setInterval(async () => {
     const statuslist = [
