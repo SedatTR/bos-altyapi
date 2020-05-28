@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-exports.run = (client, args, message) => {
+exports.run = (client, message, args, command) => {
   // Buraya kodlarınızı ekleyebilirsiniz.
   message.channel.send(`Test!`);
 };
