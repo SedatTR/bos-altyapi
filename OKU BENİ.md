@@ -1,16 +1,15 @@
-# SEDATTR | BOŞ BOT ALTYAPISI v1.0.2
-Bu projeyi rahatlıkla kopyalayabilirsiniz.
-Bu projenin amacı, insanlara yardımcı olmak için boş bir altyapı verip rahatça botlarını kurabilmeleri içindir.
-Bu projenin her şeyini kodlayan ve bu projenin sahibi SedatTR#7848'dir.
-
-- Botun bazı ayarlarını **settings.json** dosyasından değiştirebilirsiniz.
-- Botun oynuyor mesajlarını **events/ready.js** dosyasından değiştirebilirsiniz.
-- Botu eğer VDS gibi bir yerden başlatıyorsanız, **başlat.bat** dosyasını kullanabilirsiniz. Botu açmak için bu dosyayı açmanız yeterlidir.
-- Botu eğer Glitch üzerinden başlatıyorsanız, **watch.json** dosyasına 1 harf yazıp silebilirsiniz. Böylece botunuz başlayabilir.
-
-- Eğer botun sahibi 1'den fazla kişiyse, settings.json'daki owner yerini şöyle yapabilirsiniz:
-"owner" : ["Botun Sahibi 1", "Botun Sahibi 2"]
-
-Bazı Hatalar
-- An invalid token was provided: Bu hatanın sebebi, yanlış bot tokeni girilmesinden dolayıdır.
-- Cannot find module 'İSİM': Bu hatanın sebebi, İSİM adlı modül bulunamamasından dolayıdır. Modülü indirmek için, package.json bölümüne gelin, Add Package tuşuna tıklayın ve modülün ismini girip modülün ismi yazan yere tıklayın. Böylece modül inmiş olacaktır.
+# SEDATTR | BOŞ BOT ALTYAPISI v1.0.3
+- Bu projeyi rahatlıkla kopyalayabilirsiniz.
+- Bu projenin amacı, insanlara yardımcı olmak için boş bir altyapı verip rahatça botlarını kurabilmeleri içindir.
+- Discord: SedatTR#8666
+- Botlarımın Destek Sunucusu: https://discord.gg/KCNNUCe
+- Bu projenin her şeyini kodlayan ve bu projenin sahibi SedatTR#8666'dır.
+- Bazı Bilgiler:
+  - Botun bazı ayarlarını **settings.json** dosyasından değiştirebilirsiniz.
+  - Botun oynuyor mesajlarını **events/ready.js** dosyasından değiştirebilirsiniz.
+  - Botu eğer VDS gibi bir yerden başlatıyorsanız, **başlat.bat** dosyasını kullanabilirsiniz. Botu açmak için bu dosyayı açmanız yeterlidir.
+  - Botu eğer Glitch üzerinden başlatıyorsanız, **watch.json** dosyasına 1 harf yazıp silebilirsiniz. Böylece botunuz başlayabilir.
+  - Eğer botun sahibi 1'den fazla kişiyse, settings.json'daki owner yerini şöyle yapabilirsiniz: "owner" : ["Botun Sahibi 1", "Botun Sahibi 2"]
+- Bazı Hatalar
+  - An invalid token was provided: Bu hatanın sebebi, yanlış bot tokeni girilmesinden dolayıdır.
+  - Cannot find module 'İSİM': Bu hatanın sebebi, İSİM adlı modül bulunamamasından dolayıdır. Modülü indirmek için, package.json bölümüne gelin, Add Package tuşuna tıklayın ve modülün ismini girip modülün ismi yazan yere tıklayın. Böylece modül inmiş olacaktır.

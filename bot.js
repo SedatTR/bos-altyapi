@@ -39,9 +39,9 @@ client.login(settings.token);
 init();
 
 client.permission = (message, text) => {
-  if (text.includes('NONE')) return true;
-  if (text.includes('BOT_OWNER') && !settings.owner.includes(message.author.id)) return false;
-  if (text.includes('SERVER_OWNER') && message.author.id !== message.guild.owner.user.id) return false;
-  if (!message.member.hasPermission(text)) return false;
+  if (text.toUpperCase().includes('NONE')) return true;
+  if (text.toUpperCase().includes('BOT_OWNER') && !settings.owner.includes(message.author.id)) return false;
+  if (text.toUpperCase().includes('SERVER_OWNER') && message.author.id !== message.guild.owner.user.id) return false;
+  if (!message.member.hasPermission(text.toUpperCase())) return false;
   return true;
 };
